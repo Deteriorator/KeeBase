@@ -49,6 +49,12 @@ print("Opened database successfully")
 
 # print("Records created successfully")
 
+c.execute("UPDATE BOOKS SET Country = '美' WHERE ID=1;")
+
+conn.commit()
+
+print("Total number of rows updated:", conn.total_changes)
+
 cursor = c.execute("SELECT ID, Name, Author, Country, Translator, Size, Time, MD5, SHA1, CRC32 FROM BOOKS;")
 for row in cursor:
     print("ID = ", row[0])
@@ -61,4 +67,5 @@ for row in cursor:
     print("MD5 = ", row[7])
     print("SHA1 = ", row[8])
     print("CRC32 = ", row[9])
+print("Operation done succeddfully")
 conn.close()
