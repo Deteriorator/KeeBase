@@ -39,14 +39,26 @@ c = conn.cursor()
 
 print("Opened database successfully")
 
-c.execute("INSERT INTO BOOKS (ID, Name, Author, Country, Translator, Size, Time, MD5, SHA1, CRC32) VALUES (1,\
-          'Python编程：从入门到实践-[美]埃里克·马瑟斯-[文字版].pdf', '', '', '', '20.9 MB (21,929,323 字节)', \
-          '2018年11月1日 15:09:40', '6D2F56FEDDC4AA5EAD6366FA11AD2FC6', '0EA66E5432CB4EFF00B46BCD049E492EABF06462', \
-          '2501DFAF')")
+# c.execute("INSERT INTO BOOKS (ID, Name, Author, Country, Translator, Size, Time, MD5, SHA1, CRC32) VALUES (1,\
+#           'Python编程：从入门到实践-[美]埃里克·马瑟斯-[文字版].pdf', '', '', '', '20.9 MB (21,929,323 字节)', \
+#           '2018年11月1日 15:09:40', '6D2F56FEDDC4AA5EAD6366FA11AD2FC6', '0EA66E5432CB4EFF00B46BCD049E492EABF06462', \
+#           '2501DFAF')")
 
 
-conn.commit()
+# conn.commit()
 
-print("Records created successfully")
+# print("Records created successfully")
 
+cursor = c.execute("SELECT ID, Name, Author, Country, Translator, Size, Time, MD5, SHA1, CRC32 FROM BOOKS;")
+for row in cursor:
+    print("ID = ", row[0])
+    print("Name = ", row[1])
+    print("Author = ", row[2])
+    print("Country = ", row[3])
+    print("Translator = ", row[4])
+    print("Size = ", row[5])
+    print("Time = ", row[6])
+    print("MD5 = ", row[7])
+    print("SHA1 = ", row[8])
+    print("CRC32 = ", row[9])
 conn.close()
